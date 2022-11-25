@@ -32,24 +32,34 @@ lexiqueClass::lexiqueClass(const string& path) {
 }
 
 int lexiqueClass::checkWord(string newWord){
-	for (wordClass& x : this->lexique){
-		if (x.sameWord(newWord)){
-			x.addNumber();
-			return 1;
-		}
+	auto it = this->lexique.find(newWord);
+	if (it != this->lexique.end()){
+		it->second->addNumber();
+		return 1;
 	}
 	return 0;
 }
 
 void lexiqueClass::displayWords(void){
-	for (wordClass& x : this->lexique){
+	/*for (wordClass& x : this->lexique){
 		cout << x.getName() << endl;
-	}
+	}*/
 }
 
 void lexiqueClass::addWord(string newWord){
 
 	wordClass mot(newWord);
-	this->lexique.push_back(mot);
+	this->lexique.insert(make_pair(newWord,new wordClass(newWord)));
 
+}
+
+void lexiqueClass::findWord(string word){
+	auto it = this->lexique.find(word);
+	if (it != this->lexique.end()){
+		cout << "Word found !" << endl;
+		cout << "Word : " << it->second->getName() << endl;
+		cout << "Number of calls : " << it->second->getNumber() << endl;
+	}else {
+		cout << "Could not find the word : " << word << endl;
+	}
 }

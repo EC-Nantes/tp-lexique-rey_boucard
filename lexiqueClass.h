@@ -12,6 +12,7 @@
 #include <fstream>
 #include <string.h>
 #include <vector>
+#include <map>
 #include "wordClass.h"
 #include "utilitaire.hpp"
 
@@ -19,12 +20,13 @@ using namespace std;
 
 class lexiqueClass {
 private:
-	vector<wordClass> lexique;
+	map<string, wordClass*> lexique;
 public:
 	lexiqueClass(const string& path);
 	int checkWord(string newWord);
 	void addWord(string newWord);
 	void displayWords(void);
+	void findWord(string word);
 };
 
 #endif /* LEXIQUECLASS_H_ */

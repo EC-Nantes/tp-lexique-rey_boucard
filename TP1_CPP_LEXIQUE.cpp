@@ -15,7 +15,7 @@ using namespace std;
 int main() {
 
 	string content = "";
-	string path = "tp1-Lexique-fichier/lesMiserables_A.txt";
+	string path = "lesMiserables_A.txt";
 	//readFileIntoString(path, content);
     string test = "Salut,Romain";
     cout << test << endl;
@@ -51,15 +51,24 @@ int main() {
     pch = strtok (NULL, " ,-."); //Element suivant de la chaine de caractères, premier parametre : chaine stockée en mémoire à séparer
     cout << pch;*/
 
-    string str = "SaluT, RomAIn";
+    /*string str = "SaluT, RomAIn";
     cout << str << endl;
     toLower(str);
-    cout << str << endl;
+    cout << str << endl;*/
 
-    map<string, wordClass*> lexique;
+    /*map<string, wordClass*> lexique;
     wordClass mot("Romain");
     lexique.insert(make_pair("Romain",new wordClass("Romain")));
     //lexique.find("Romain");
-    cout << "Romain => " << lexique.find("Romain")->second->getNumber() << '\n';
+    if (lexique.find("Romain") != lexique.end()){
+        cout << "trouve" << endl;
+    }else {
+        cout << "pas trouve" << endl;
+    }*/
+
+    lexiqueClass lexique(path);
+    lexique.findWord("with");
+    lexique.findWord("romain");
+
     return 0;
 }
