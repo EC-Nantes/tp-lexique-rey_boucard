@@ -63,3 +63,14 @@ void lexiqueClass::findWord(string word){
 		cout << "Could not find the word : " << word << endl;
 	}
 }
+
+void lexiqueClass::eraseWord (string word){
+	auto it = this->lexique.find(word);
+	if (it != this->lexique.end()){
+		cout << "Word found !" << endl;
+		this->lexique.erase(word);
+		cout << "Word '" << word << "' erased" << endl;
+	}else {
+		cout << "Could not find the word : " << word << endl;
+	}
+}

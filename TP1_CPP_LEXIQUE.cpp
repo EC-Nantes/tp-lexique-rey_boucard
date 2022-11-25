@@ -69,6 +69,8 @@ int main() {
     lexiqueClass lexique(path);
     lexique.findWord("with");
     lexique.findWord("romain");
+    lexique.eraseWord("with");
+    lexique.findWord("with");
 
     return 0;
 }
