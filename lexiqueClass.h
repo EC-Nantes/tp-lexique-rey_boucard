@@ -2,7 +2,7 @@
  * lexiqueClass.h
  *
  *  Created on: 25 nov. 2022
- *      Author: mrey5
+ *      Author: REY Maxime, BOUCARD Romain
  */
 
 #ifndef LEXIQUECLASS_H_
@@ -11,20 +11,17 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
+#include "wordClass.h"
 
 using namespace std;
 
 class lexiqueClass {
 private:
-	string name;
-	int number;
+	vector<wordClass> lexique;
 public:
 	lexiqueClass();
-	virtual ~lexiqueClass();
-	void setName(string name);
-	void setNumber(int number);
-	string getName(void);
-	int getNumber(void);
+	int checkWord(string newWord);
 };
 
 #endif /* LEXIQUECLASS_H_ */
