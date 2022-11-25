@@ -6,6 +6,7 @@
 #include <vector>
 #include <stdio.h>
 #include <string.h>
+#include <map>
 #include "utilitaire.hpp"
 #include "lexiqueClass.h"
 
@@ -37,7 +38,7 @@ int main() {
     cout << TestClasse[0].getName() << endl;
     cout << TestClasse[0].getNumber() << endl;*/
 
-    char str[] ="- This, a sample string.";
+    /*char str[] ="- This, a sample string.";
     char str1[] =", Date. truc";
     char * pch;
     printf ("Splitting string \"%s\" into tokens:\n",str);
@@ -48,6 +49,17 @@ int main() {
     pch = strtok (NULL, " ,-.");
     cout << pch << endl;
     pch = strtok (NULL, " ,-."); //Element suivant de la chaine de caractères, premier parametre : chaine stockée en mémoire à séparer
-    cout << pch;
+    cout << pch;*/
+
+    string str = "SaluT, RomAIn";
+    cout << str << endl;
+    toLower(str);
+    cout << str << endl;
+
+    map<string, wordClass*> lexique;
+    wordClass mot("Romain");
+    lexique.insert(make_pair("Romain",new wordClass("Romain")));
+    //lexique.find("Romain");
+    cout << "Romain => " << lexique.find("Romain")->second->getNumber() << '\n';
     return 0;
 }

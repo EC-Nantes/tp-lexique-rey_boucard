@@ -10,9 +10,10 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <string.h>
 #include <vector>
 #include "wordClass.h"
+#include "utilitaire.hpp"
 
 using namespace std;
 
@@ -20,8 +21,10 @@ class lexiqueClass {
 private:
 	vector<wordClass> lexique;
 public:
-	lexiqueClass();
+	lexiqueClass(const string& path);
 	int checkWord(string newWord);
+	void addWord(string newWord);
+	void displayWords(void);
 };
 
 #endif /* LEXIQUECLASS_H_ */

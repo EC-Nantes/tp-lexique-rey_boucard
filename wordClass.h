@@ -25,6 +25,7 @@ public:
 	string getName(void);
 	int getNumber(void);
 	void addNumber(void);
+	int sameWord(string newWord);
 };
 
 #endif /* WORDCLASS_H_ */

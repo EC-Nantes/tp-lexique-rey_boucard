@@ -7,6 +7,7 @@
 
 
 #include "wordClass.h"
+#include "utilitaire.hpp"
 
 wordClass::wordClass(string name) {
 	// TODO Auto-generated constructor stub
@@ -33,4 +34,14 @@ int wordClass::getNumber(void){
 
 void wordClass::addNumber(void){
 	this->number += 1;
+}
+
+int wordClass::sameWord(string newWord){
+    toLower(newWord);
+    if (this->name == newWord){
+		return 1;
+    }
+	else {
+		return 0;
+	}
 }
