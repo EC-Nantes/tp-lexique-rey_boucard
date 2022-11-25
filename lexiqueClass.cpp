@@ -5,9 +5,7 @@
  *      Author: mrey5
  */
 
-#include <iostream>
-#include <fstream>
-#include <string>
+
 #include "lexiqueClass.h"
 
 lexiqueClass::lexiqueClass() {
@@ -21,3 +19,19 @@ lexiqueClass::~lexiqueClass() {
 	// TODO Auto-generated destructor stub
 }
 
+
+void lexiqueClass::setName(string name){
+	this->name = name;
+}
+
+void lexiqueClass::setNumber(int number){
+	this->number = number;
+}
+
+string lexiqueClass::getName(void){
+	return this->name;
+}
+
+int lexiqueClass::getNumber(void){
+	return this->number;
+}

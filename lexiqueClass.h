@@ -8,10 +8,23 @@
 #ifndef LEXIQUECLASS_H_
 #define LEXIQUECLASS_H_
 
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
 class lexiqueClass {
+private:
+	string name;
+	int number;
 public:
 	lexiqueClass();
 	virtual ~lexiqueClass();
+	void setName(string name);
+	void setNumber(int number);
+	string getName(void);
+	int getNumber(void);
 };
 
 #endif /* LEXIQUECLASS_H_ */
