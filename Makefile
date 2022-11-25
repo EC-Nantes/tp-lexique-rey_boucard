@@ -1,31 +1,23 @@
-PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+OBJS	= TP1_CPP_LEXIQUE.o utilitaire.o lexiqueClass.o
+SOURCE	= TP1_CPP_LEXIQUE.cpp utilitaire.cpp lexiqueClass.cpp
+HEADER	= utilitaire.hpp lexiqueClass.hpp
+OUT	= projectCPP
+CC	 = g++
+FLAGS	 = -g -c -Wall
+LFLAGS	 = 
 
-OBJS = TP1_CPP_LEXIQUE.o
+all: $(OBJS)
+	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
 
-ifeq ($(BUILD_MODE),debug)
-	CFLAGS += -g
-else ifeq ($(BUILD_MODE),run)
-	CFLAGS += -O2
-else ifeq ($(BUILD_MODE),linuxtools)
-	CFLAGS += -g -pg -fprofile-arcs -ftest-coverage
-	LDFLAGS += -pg -fprofile-arcs -ftest-coverage
-	EXTRA_CLEAN += TP1_CPP_LEXIQUE.gcda TP1_CPP_LEXIQUE.gcno $(PROJECT_ROOT)gmon.out
-	EXTRA_CMDS = rm -rf TP1_CPP_LEXIQUE.gcda
-else
-    $(error Build mode $(BUILD_MODE) not supported by this Makefile)
-endif
+TP1_CPP_LEXIQUE.o: TP1_CPP_LEXIQUE.cpp
+	$(CC) $(FLAGS) TP1_CPP_LEXIQUE.cpp -std=c17
 
-all:	TP1_CPP_LEXIQUE
+utilitaire.o: utilitaire.cpp
+	$(CC) $(FLAGS) utilitaire.cpp -std=c17
 
-TP1_CPP_LEXIQUE:	$(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $^
-	$(EXTRA_CMDS)
+lexiqueClass.o: lexiqueClass.cpp
+	$(CC) $(FLAGS) lexiqueClass.cpp -std=c17
 
-%.o:	$(PROJECT_ROOT)%.cpp
-	$(CXX) -c $(CFLAGS) $(CXXFLAGS) $(CPPFLAGS) -o $@ $<
-
-%.o:	$(PROJECT_ROOT)%.c
-	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 clean:
-	rm -fr TP1_CPP_LEXIQUE $(OBJS) $(EXTRA_CLEAN)
+	rm -f $(OBJS) $(OUT)
