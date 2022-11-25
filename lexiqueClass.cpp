@@ -74,3 +74,7 @@ void lexiqueClass::eraseWord (string word){
 		cout << "Could not find the word : " << word << endl;
 	}
 }
+
+void lexiqueClass::numberWords(){
+	cout << "\e[0;31mNumber of words : " << this->lexique.size() << "\e[0;37m" << endl;
+}

@@ -28,6 +28,7 @@ public:
 	void displayWords(void);
 	void findWord(string word);
 	void eraseWord(string word);
+	void numberWords(void);
 };
 
 #endif /* LEXIQUECLASS_H_ */
