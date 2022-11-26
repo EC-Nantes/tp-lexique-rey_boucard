@@ -73,6 +73,7 @@ int main() {
     lexique.eraseWord("with");
     lexique.findWord("with");
     lexique.numberWords();
+    cout << lexique;
 
     return 0;
 }

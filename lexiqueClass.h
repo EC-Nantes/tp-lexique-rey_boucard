@@ -25,10 +25,10 @@ public:
 	lexiqueClass(const string& path);
 	int checkWord(string newWord);
 	void addWord(string newWord);
-	void displayWords(void);
 	void findWord(string word);
 	void eraseWord(string word);
 	void numberWords(void);
+	friend ostream& operator<<(ostream& os, const lexiqueClass& lexique);
 };
 
 #endif /* LEXIQUECLASS_H_ */

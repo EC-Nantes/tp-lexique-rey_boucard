@@ -24,11 +24,10 @@ lexiqueClass::lexiqueClass(const string& path) {
 			this->addWord(pch);
 //			cout << pch << endl;
 		}
-		pch = strtok (NULL, " ,.-\n*(){}[]'_1234567890/:");
+		pch = strtok (NULL, " ,.-\n*(){}[]'_1234567890/:;!?");
 	  }
 
 	cout << "fichier totalement charge" << endl;
-
 }
 
 int lexiqueClass::checkWord(string newWord){
@@ -38,12 +37,6 @@ int lexiqueClass::checkWord(string newWord){
 		return 1;
 	}
 	return 0;
-}
-
-void lexiqueClass::displayWords(void){
-	/*for (wordClass& x : this->lexique){
-		cout << x.getName() << endl;
-	}*/
 }
 
 void lexiqueClass::addWord(string newWord){
@@ -77,4 +70,14 @@ void lexiqueClass::eraseWord (string word){
 
 void lexiqueClass::numberWords(){
 	cout << "\e[0;31mNumber of words : " << this->lexique.size() << "\e[0;37m" << endl;
+}
+
+ostream& operator<<(ostream& os, const lexiqueClass& lexique){
+	os << "Lexique\n";
+	auto it=lexique.lexique.begin();
+	while (it != lexique.lexique.end()){
+		os << it->second->getName() << "\n";
+		it++;
+	}
+	return os;
 }
